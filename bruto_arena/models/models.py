@@ -13,6 +13,8 @@ class character(models.Model):
     _description = 'Characters'
 
     name = fields.Char()
+    level = fields.Integer()
+    experience = fields.Integer()
     health = fields.Integer()
     strength = fields.Integer()
     agility = fields.Integer()
@@ -36,7 +38,7 @@ class weapon(models.Model):
     type = fields.Char()
     damage = fields.Integer()
     odds = fields.Float() #Probabilidad de que se use el arma en combate
-    #Boost:
+    #Boost: (Cambiar a float)
 #    interval = fields.Integer()
 #    reach = fields.Integer()
 #    reversal_rate = fields.Integer() #Contraataque 
