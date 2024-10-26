@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="bruto_arena.player_list">
+      <field name="name">bruto arena player list</field>
+      <field name="model">bruto_arena.player</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_player_window">
+      <field name="name">bruto arena player window</field>
+      <field name="res_model">bruto_arena.player</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_character_window">
+      <field name="name">bruto arena character window</field>
+      <field name="res_model">bruto_arena.character</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_skill_window">
+      <field name="name">bruto arena skill window</field>
+      <field name="res_model">bruto_arena.skill</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_weapon_window">
+      <field name="name">bruto arena weapon window</field>
+      <field name="res_model">bruto_arena.weapon</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_pet_window">
+      <field name="name">bruto arena pet window</field>
+      <field name="res_model">bruto_arena.pet</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_mount_window">
+      <field name="name">bruto arena mount window</field>
+      <field name="res_model">bruto_arena.mount</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bruto_arena.action_server">
+      <field name="name">bruto_arena server</field>
+      <field name="model_id" ref="model_bruto_arena_bruto_arena"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Bruto Arena" id="bruto_arena.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Game" id="bruto_arena.menu_1" parent="bruto_arena.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Players" id="bruto_arena.menu_player_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_player_window"/>
+
+    <menuitem name="Characters" id="bruto_arena.menu_character_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_character_window"/>
+
+    <menuitem name="Skills" id="bruto_arena.meu_skill_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_skill_window"/>
+
+    <menuitem name="Weapons" id="bruto_arena.menu_weapon_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_weapon_window"/>
+
+    <menuitem name="Pets" id="bruto_arena.menu_pet_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_pet_window"/>
+
+    <menuitem name="Mounts" id="bruto_arena.menu_mount_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_mount_window"/>
+
+  </data>
+</odoo>

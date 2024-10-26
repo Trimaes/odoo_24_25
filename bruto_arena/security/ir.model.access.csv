@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bruto_arena_player,bruto_arena.player,model_bruto_arena_player,base.group_user,1,1,1,1
+access_bruto_arena_character,bruto_arena.character,model_bruto_arena_character,base.group_user,1,1,1,1
+access_bruto_arena_skill,bruto_arena.skill,model_bruto_arena_skill,base.group_user,1,1,1,1
+access_bruto_arena_weapon,bruto_arena.weapon,model_bruto_arena_weapon,base.group_user,1,1,1,1
+access_bruto_arena_pet,bruto_arena.pet,model_bruto_arena_pet,base.group_user,1,1,1,1
+access_bruto_arena_mount,bruto_arena.mount,model_bruto_arena_mount,base.group_user,1,1,1,1
