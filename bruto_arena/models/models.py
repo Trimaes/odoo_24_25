@@ -7,6 +7,8 @@ class player(models.Model):
     _description = 'Players'
 
     name = fields.Char()
+    #Relation
+    characters = fields.One2many(string='Characters', comodel_name='bruto_arena.character', inverse_name='player')
 #Personajes
 class character(models.Model):
     _name = 'bruto_arena.character'
@@ -20,6 +22,27 @@ class character(models.Model):
     agility = fields.Integer()
     speed = fields.Integer()
     resistance = fields.Integer()
+    #Relations
+    player = fields.Many2one(string='Player', comodel_name='bruto_arena.player')
+    skills = fields.Many2many(comodel_name='bruto_arena.skill',
+                              relation='character_skills',
+                              column1='character_name',
+                              column2='character_skills')
+
+    weapons = fields.Many2many(comodel_name='bruto_arena.weapon',
+                              relation='character_weapons',
+                              column1='character_name',
+                              column2='character_weapons')
+
+    pets = fields.Many2many(comodel_name='bruto_arena.pet',
+                              relation='character_pets',
+                              column1='character_name',
+                              column2='character_pets')
+
+    mounts = fields.Many2many(comodel_name='bruto_arena.mount',
+                              relation='character_mounts',
+                              column1='character_name',
+                              column2='character_mounts')
 #Habilidades
 class skill(models.Model):
     _name = 'bruto_arena.skill'
@@ -38,16 +61,16 @@ class weapon(models.Model):
     type = fields.Char()
     damage = fields.Integer()
     odds = fields.Float() #Probabilidad de que se use el arma en combate
-    #Boost: (Cambiar a float)
-#    interval = fields.Integer()
-#    reach = fields.Integer()
-#    reversal_rate = fields.Integer() #Contraataque 
-#    combo_rate = fields.Integer()
-#    disarm_rate = fields.Integer()
-#    precision = fields.Integer()
-#    evasion = fields.Integer()
-#    block_rate = fields.Integer()
-#    accuracy = fields.Integer()
+    #Boost:
+    interval = fields.Integer()
+    reach = fields.Integer()
+    reversal_rate = fields.Integer() #Contraataque 
+    combo_rate = fields.Integer()
+    disarm_rate = fields.Integer()
+    precision = fields.Integer()
+    evasion = fields.Integer()
+    block_rate = fields.Integer()
+    accuracy = fields.Integer()
 
 #Armadura
 #class armor(models.Model):

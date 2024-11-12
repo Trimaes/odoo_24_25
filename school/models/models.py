@@ -27,7 +27,7 @@ class classroom(models.Model):
                                  relation='teachers_classrooms',
                                  column1='classroom_id',
                                  column2='teacher_id')
-
+# ly = lastYear
      teachers_ly = fields.Many2many(comodel_name='school.teacher',
                                  relation='teachers_classrooms_ly',
                                  column1='classroom_id',
