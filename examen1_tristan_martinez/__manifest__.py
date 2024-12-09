@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "bruto_arena",
+    'name': "examen1_tristan_martinez",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -29,9 +29,6 @@ Long description of module's purpose
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-        'demo/demo_players.xml',
-        'demo/demo_characters.xml',
-        'demo/demo_rankings.xml',
     ],
 }
 

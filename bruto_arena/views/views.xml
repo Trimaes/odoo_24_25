@@ -1,14 +1,264 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
+    <!--TREE-->
     <record model="ir.ui.view" id="bruto_arena.player_list">
       <field name="name">bruto arena player list</field>
       <field name="model">bruto_arena.player</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="characters"/>
         </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.character_list">
+      <field name="name">bruto arena character list</field>
+      <field name="model">bruto_arena.character</field>
+      <field name="arch" type="xml">
+        <tree decoration-success="level&gt;20">
+          <field name="name"/>
+          <field name="level"/>
+          <field name="victories"/>
+          <field name="ranking"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.skill_list">
+      <field name="name">bruto arena skill list</field>
+      <field name="model">bruto_arena.skill</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.weapon_list">
+      <field name="name">bruto arena weapon list</field>
+      <field name="model">bruto_arena.weapon</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="damage"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.pet_list">
+      <field name="name">bruto arena pet list</field>
+      <field name="model">bruto_arena.pet</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="damage"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.ranking_list">
+      <field name="name">bruto arena ranking list</field>
+      <field name="model">bruto_arena.ranking</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="characters"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--FORM-->
+
+    <record model="ir.ui.view" id="bruto_arena.player_form">
+      <field name="name">bruto arena player form</field>
+      <field name="model">bruto_arena.player</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <field name="photo" widget="image"/>
+              <group>
+                <group>
+                  <separator string="Name"></separator>
+                  <field name="name"/>
+                </group>
+                <group>
+                  <separator string="Characters"></separator>
+                  <field name="characters"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.character_form">
+      <field name="name">bruto arena character form</field>
+      <field name="model">bruto_arena.character</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <!--<field name="photo" widget="image"/>-->
+              <header><button name="fight" type="object" class="oe_highlight" string="Fight"/></header>
+              <group>
+                <group>
+                  <separator string="Character"></separator>
+                  <field name="name"/>
+                  <field name="experience"/>
+                  <field name="level"/>
+                  <field name="player"/>
+                  <field name="victories"/>
+                  <field name="ranking"/>
+                </group>
+                <group>
+                  <separator string="Stats"></separator>
+                  <field name="health"/>
+                  <field name="strength"/>
+                  <field name="agility"/>
+                  <field name="speed"/>
+                  <field name="resistance"/>
+                </group>
+              </group>
+              <notebook>
+                <page string="Skills">
+                  <field name="skills">
+                    <tree>
+                      <field name="name"/>
+                    </tree>
+                  </field>
+                </page>
+                <page string="Weapons">
+                  <field name="weapons">
+                    <tree>
+                      <field name="name"/>
+                    </tree>
+                  </field>
+                </page>
+                <page string="Pets">
+                  <field name="pets">
+                    <tree>
+                      <field name="name"/>
+                    </tree>
+                  </field>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.skill_form">
+      <field name="name">bruto arena skill form</field>
+      <field name="model">bruto_arena.skill</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <separator string="Skill"></separator>
+                  <field name="name"/>
+                  <field name="type"/>
+                  <field name="odds"/>
+                </group>
+                <group>
+                  <separator string="Description"></separator>
+                  <field name="skill_description"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.weapon_form">
+      <field name="name">bruto arena weapon form</field>
+      <field name="model">bruto_arena.weapon</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <separator string="Weapon"></separator>
+                  <field name="name"/>
+                  <field name="type"/>
+                  <field name="odds"/>
+                </group>
+                <group>
+                  <separator string="Features"></separator>
+                  <field name="damage"/>
+                  <field name="reach"/>
+                  <field name="reversal_rate"/>
+                  <field name="combo_rate"/>
+                  <field name="disarm_rate"/>
+                  <field name="precision"/>
+                  <field name="block_rate"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.pet_form">
+      <field name="name">bruto arena pet form</field>
+      <field name="model">bruto_arena.pet</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <separator string="Pet"></separator>
+                  <field name="name"/>
+                </group>
+                <group>
+                  <separator string="Stats"></separator>
+                  <field name="health"/>
+                  <field name="damage"/>
+                  <field name="agility"/>
+                  <field name="speed"/>
+                </group>
+                <group>
+                  <separator string="Features"></separator>
+                  <field name="combo_rate"/>
+                </group>
+                <group>
+                  <separator string="Description"></separator>
+                  <field name="pet_description"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bruto_arena.ranking_form">
+      <field name="name">bruto arena ranking form</field>
+      <field name="model">bruto_arena.ranking</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <separator string="Ranking"></separator>
+                  <field name="name"/>
+                </group>
+                <group>
+                  <separator string="Characters"></separator>
+                  <field name="characters">
+                    <tree>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="victories"/>
+                    </tree>
+                  </field>
+                </group>
+              </group>
+            </sheet>
+          </form>
       </field>
     </record>
 
@@ -44,9 +294,9 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="bruto_arena.action_mount_window">
-      <field name="name">bruto arena mount window</field>
-      <field name="res_model">bruto_arena.mount</field>
+    <record model="ir.actions.act_window" id="bruto_arena.action_ranking_window">
+      <field name="name">bruto arena ranking window</field>
+      <field name="res_model">bruto_arena.ranking</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -90,9 +340,9 @@
 
     <menuitem name="Pets" id="bruto_arena.menu_pet_list" parent="bruto_arena.menu_1"
               action="bruto_arena.action_pet_window"/>
-
-    <menuitem name="Mounts" id="bruto_arena.menu_mount_list" parent="bruto_arena.menu_1"
-              action="bruto_arena.action_mount_window"/>
+              
+    <menuitem name="Ranking" id="bruto_arena.menu_ranking_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_ranking_window"/>
 
   </data>
 </odoo>

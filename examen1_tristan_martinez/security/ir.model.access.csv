@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_examen1_tristan_martinez_furgoneta,examen1_tristan_martinez.furgoneta,model_examen1_tristan_martinez_furgoneta,base.group_user,1,1,1,1
+access_examen1_tristan_martinez_paquete,examen1_tristan_martinez.paquete,model_examen1_tristan_martinez_paquete,base.group_user,1,1,1,1
+access_examen1_tristan_martinez_viaje,examen1_tristan_martinez.viaje,model_examen1_tristan_martinez_viaje,base.group_user,1,1,1,1

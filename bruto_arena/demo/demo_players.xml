@@ -1,0 +1,301 @@
+<odoo>
+    <data>
+        <record id='playerDin' model='bruto_arena.player'>
+            <field name='name'>Din</field>
+        </record>
+        <record id='playerZorina' model='bruto_arena.player'>
+            <field name='name'>Zorina</field>
+        </record>
+        <record id='playerStephana' model='bruto_arena.player'>
+            <field name='name'>Stephana</field>
+        </record>
+        <record id='playerAurlie' model='bruto_arena.player'>
+            <field name='name'>Aurlie</field>
+        </record>
+        <record id='playerVerene' model='bruto_arena.player'>
+            <field name='name'>Verene</field>
+        </record>
+        <record id='playerIngra' model='bruto_arena.player'>
+            <field name='name'>Ingra</field>
+        </record>
+        <record id='playerMerlina' model='bruto_arena.player'>
+            <field name='name'>Merlina</field>
+        </record>
+        <record id='playerMarius' model='bruto_arena.player'>
+            <field name='name'>Marius</field>
+        </record>
+        <record id='playerMattie' model='bruto_arena.player'>
+            <field name='name'>Mattie</field>
+        </record>
+        <record id='playerSydel' model='bruto_arena.player'>
+            <field name='name'>Sydel</field>
+        </record>
+        <record id='playerPearla' model='bruto_arena.player'>
+            <field name='name'>Pearla</field>
+        </record>
+        <record id='playerRowen' model='bruto_arena.player'>
+            <field name='name'>Rowen</field>
+        </record>
+        <record id='playerEmilie' model='bruto_arena.player'>
+            <field name='name'>Emilie</field>
+        </record>
+        <record id='playerKip' model='bruto_arena.player'>
+            <field name='name'>Kip</field>
+        </record>
+        <record id='playerCatherina' model='bruto_arena.player'>
+            <field name='name'>Catherina</field>
+        </record>
+        <record id='playerLodovico' model='bruto_arena.player'>
+            <field name='name'>Lodovico</field>
+        </record>
+        <record id='playerWang' model='bruto_arena.player'>
+            <field name='name'>Wang</field>
+        </record>
+        <record id='playerRoseanna' model='bruto_arena.player'>
+            <field name='name'>Roseanna</field>
+        </record>
+        <record id='playerGothart' model='bruto_arena.player'>
+            <field name='name'>Gothart</field>
+        </record>
+        <record id='playerKer' model='bruto_arena.player'>
+            <field name='name'>Ker</field>
+        </record>
+        <record id='playerHinze' model='bruto_arena.player'>
+            <field name='name'>Hinze</field>
+        </record>
+        <record id='playerJonis' model='bruto_arena.player'>
+            <field name='name'>Jonis</field>
+        </record>
+        <record id='playerBirgitta' model='bruto_arena.player'>
+            <field name='name'>Birgitta</field>
+        </record>
+        <record id='playerMike' model='bruto_arena.player'>
+            <field name='name'>Mike</field>
+        </record>
+        <record id='playerShermy' model='bruto_arena.player'>
+            <field name='name'>Shermy</field>
+        </record>
+        <record id='playerFidelia' model='bruto_arena.player'>
+            <field name='name'>Fidelia</field>
+        </record>
+        <record id='playerBeulah' model='bruto_arena.player'>
+            <field name='name'>Beulah</field>
+        </record>
+        <record id='playerKeir' model='bruto_arena.player'>
+            <field name='name'>Keir</field>
+        </record>
+        <record id='playerCosmo' model='bruto_arena.player'>
+            <field name='name'>Cosmo</field>
+        </record>
+        <record id='playerCarmelina' model='bruto_arena.player'>
+            <field name='name'>Carmelina</field>
+        </record>
+        <record id='playerDorine' model='bruto_arena.player'>
+            <field name='name'>Dorine</field>
+        </record>
+        <record id='playerDedie' model='bruto_arena.player'>
+            <field name='name'>Dedie</field>
+        </record>
+        <record id='playerWhit' model='bruto_arena.player'>
+            <field name='name'>Whit</field>
+        </record>
+        <record id='playerDorena' model='bruto_arena.player'>
+            <field name='name'>Dorena</field>
+        </record>
+        <record id='playerWiatt' model='bruto_arena.player'>
+            <field name='name'>Wiatt</field>
+        </record>
+        <record id='playerRoland' model='bruto_arena.player'>
+            <field name='name'>Roland</field>
+        </record>
+        <record id='playerEngracia' model='bruto_arena.player'>
+            <field name='name'>Engracia</field>
+        </record>
+        <record id='playerMaurene' model='bruto_arena.player'>
+            <field name='name'>Maurene</field>
+        </record>
+        <record id='playerCass' model='bruto_arena.player'>
+            <field name='name'>Cass</field>
+        </record>
+        <record id='playerArtemis' model='bruto_arena.player'>
+            <field name='name'>Artemis</field>
+        </record>
+        <record id='playerMahalia' model='bruto_arena.player'>
+            <field name='name'>Mahalia</field>
+        </record>
+        <record id='playerTomaso' model='bruto_arena.player'>
+            <field name='name'>Tomaso</field>
+        </record>
+        <record id='playerRube' model='bruto_arena.player'>
+            <field name='name'>Rube</field>
+        </record>
+        <record id='playerMerle' model='bruto_arena.player'>
+            <field name='name'>Merle</field>
+        </record>
+        <record id='playerAgathe' model='bruto_arena.player'>
+            <field name='name'>Agathe</field>
+        </record>
+        <record id='playerPace' model='bruto_arena.player'>
+            <field name='name'>Pace</field>
+        </record>
+        <record id='playerNoelani' model='bruto_arena.player'>
+            <field name='name'>Noelani</field>
+        </record>
+        <record id='playerAurie' model='bruto_arena.player'>
+            <field name='name'>Aurie</field>
+        </record>
+        <record id='playerJerrine' model='bruto_arena.player'>
+            <field name='name'>Jerrine</field>
+        </record>
+        <record id='playerFelicity' model='bruto_arena.player'>
+            <field name='name'>Felicity</field>
+        </record>
+        <record id='playerRicoriki' model='bruto_arena.player'>
+            <field name='name'>Ricoriki</field>
+        </record>
+        <record id='playerHenri' model='bruto_arena.player'>
+            <field name='name'>Henri</field>
+        </record>
+        <record id='playerDarcie' model='bruto_arena.player'>
+            <field name='name'>Darcie</field>
+        </record>
+        <record id='playerKathryn' model='bruto_arena.player'>
+            <field name='name'>Kathryn</field>
+        </record>
+        <record id='playerFarleigh' model='bruto_arena.player'>
+            <field name='name'>Farleigh</field>
+        </record>
+        <record id='playerManolo' model='bruto_arena.player'>
+            <field name='name'>Manolo</field>
+        </record>
+        <record id='playerLetitia' model='bruto_arena.player'>
+            <field name='name'>Letitia</field>
+        </record>
+        <record id='playerCelisse' model='bruto_arena.player'>
+            <field name='name'>Celisse</field>
+        </record>
+        <record id='playerJoshia' model='bruto_arena.player'>
+            <field name='name'>Joshia</field>
+        </record>
+        <record id='playerBriney' model='bruto_arena.player'>
+            <field name='name'>Briney</field>
+        </record>
+        <record id='playerHobey' model='bruto_arena.player'>
+            <field name='name'>Hobey</field>
+        </record>
+        <record id='playerPaddy' model='bruto_arena.player'>
+            <field name='name'>Paddy</field>
+        </record>
+        <record id='playerGayel' model='bruto_arena.player'>
+            <field name='name'>Gayel</field>
+        </record>
+        <record id='playerMuire' model='bruto_arena.player'>
+            <field name='name'>Muire</field>
+        </record>
+        <record id='playerWilly' model='bruto_arena.player'>
+            <field name='name'>Willy</field>
+        </record>
+        <record id='playerMeris' model='bruto_arena.player'>
+            <field name='name'>Meris</field>
+        </record>
+        <record id='playerHester' model='bruto_arena.player'>
+            <field name='name'>Hester</field>
+        </record>
+        <record id='playerJosephina' model='bruto_arena.player'>
+            <field name='name'>Josephina</field>
+        </record>
+        <record id='playerBryn' model='bruto_arena.player'>
+            <field name='name'>Bryn</field>
+        </record>
+        <record id='playerCornie' model='bruto_arena.player'>
+            <field name='name'>Cornie</field>
+        </record>
+        <record id='playerIrwinn' model='bruto_arena.player'>
+            <field name='name'>Irwinn</field>
+        </record>
+        <record id='playerMelosa' model='bruto_arena.player'>
+            <field name='name'>Melosa</field>
+        </record>
+        <record id='playerMervin' model='bruto_arena.player'>
+            <field name='name'>Mervin</field>
+        </record>
+        <record id='playerKatha' model='bruto_arena.player'>
+            <field name='name'>Katha</field>
+        </record>
+        <record id='playerRichardo' model='bruto_arena.player'>
+            <field name='name'>Richardo</field>
+        </record>
+        <record id='playerKarlik' model='bruto_arena.player'>
+            <field name='name'>Karlik</field>
+        </record>
+        <record id='playerHelen-elizabeth' model='bruto_arena.player'>
+            <field name='name'>Helen-elizabeth</field>
+        </record>
+        <record id='playerDori' model='bruto_arena.player'>
+            <field name='name'>Dori</field>
+        </record>
+        <record id='playerSanford' model='bruto_arena.player'>
+            <field name='name'>Sanford</field>
+        </record>
+        <record id='playerGregoor' model='bruto_arena.player'>
+            <field name='name'>Gregoor</field>
+        </record>
+        <record id='playerCthrine' model='bruto_arena.player'>
+            <field name='name'>Cthrine</field>
+        </record>
+        <record id='playerSunny' model='bruto_arena.player'>
+            <field name='name'>Sunny</field>
+        </record>
+        <record id='playerChandler' model='bruto_arena.player'>
+            <field name='name'>Chandler</field>
+        </record>
+        <record id='playerEleonora' model='bruto_arena.player'>
+            <field name='name'>Eleonora</field>
+        </record>
+        <record id='playerEb' model='bruto_arena.player'>
+            <field name='name'>Eb</field>
+        </record>
+        <record id='playerPhylys' model='bruto_arena.player'>
+            <field name='name'>Phylys</field>
+        </record>
+        <record id='playerBryn' model='bruto_arena.player'>
+            <field name='name'>Bryn</field>
+        </record>
+        <record id='playerSamantha' model='bruto_arena.player'>
+            <field name='name'>Samantha</field>
+        </record>
+        <record id='playerObed' model='bruto_arena.player'>
+            <field name='name'>Obed</field>
+        </record>
+        <record id='playerJeremiah' model='bruto_arena.player'>
+            <field name='name'>Jeremiah</field>
+        </record>
+        <record id='playerAlfie' model='bruto_arena.player'>
+            <field name='name'>Alfie</field>
+        </record>
+        <record id='playerTanney' model='bruto_arena.player'>
+            <field name='name'>Tanney</field>
+        </record>
+        <record id='playerGianna' model='bruto_arena.player'>
+            <field name='name'>Gianna</field>
+        </record>
+        <record id='playerEwen' model='bruto_arena.player'>
+            <field name='name'>Ewen</field>
+        </record>
+        <record id='playerLilas' model='bruto_arena.player'>
+            <field name='name'>Lilas</field>
+        </record>
+        <record id='playerNorbert' model='bruto_arena.player'>
+            <field name='name'>Norbert</field>
+        </record>
+        <record id='playerGustave' model='bruto_arena.player'>
+            <field name='name'>Gustave</field>
+        </record>
+        <record id='playerLianne' model='bruto_arena.player'>
+            <field name='name'>Lianne</field>
+        </record>
+        <record id='playerStefanie' model='bruto_arena.player'>
+            <field name='name'>Stefanie</field>
+        </record>
+    </data>
+</odoo>

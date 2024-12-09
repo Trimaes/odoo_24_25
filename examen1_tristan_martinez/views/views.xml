@@ -1,0 +1,129 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--TREE-->
+    <record model="ir.ui.view" id="examen1_tristan_martinez.furgoneta_list">
+      <field name="name">examen1_tristan_martinez furgoneta list</field>
+      <field name="model">examen1_tristan_martinez.furgoneta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="matricula"/>
+          <field name="capacidad"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="examen1_tristan_martinez.paquete_list">
+      <field name="name">examen1_tristan_martinez paquete list</field>
+      <field name="model">examen1_tristan_martinez.paquete</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="identificador"/>
+          <field name="volumen"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="examen1_tristan_martinez.viaje_list">
+      <field name="name">examen1_tristan_martinez viaje list</field>
+      <field name="model">examen1_tristan_martinez.viaje</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="identificador"/>
+          <field name="conductor"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--FORM-->
+
+    <record model="ir.ui.view" id="examen1_tristan_martinez.furgoneta_form">
+      <field name="name">examen1_tristan_martinez furgoneta form</field>
+      <field name="model">examen1_tristan_martinez.furgoneta</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="foto" widget="image"></field>
+              <group>
+              <separator string="Datos de la furgoneta:"></separator>
+                <field name="matricula"/>
+                <field name="capacidad"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="examen1_tristan_martinez.viaje_view_search" model="ir.ui.view">
+      <field name="name">examen1_tristan_martinez.viaje.view.search</field>
+      <field name="model">examen1_tristan_martinez.viaje</field>
+      <field name="arch" type="xml">
+        <search string="Furgoneta">
+        
+          <group expand="0" string="Group By">
+              <filter name="group_by_furgoneta" string="Furgoneta" context="{'group_by':'furgoneta'}"/> 
+          </group>
+          
+        </search>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="examen1_tristan_martinez.action_furgoneta_window">
+      <field name="name">examen1_tristan_martinez furgoneta window</field>
+      <field name="res_model">examen1_tristan_martinez.furgoneta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="examen1_tristan_martinez.action_paquete_window">
+      <field name="name">examen1_tristan_martinez paquete window</field>
+      <field name="res_model">examen1_tristan_martinez.paquete</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="examen1_tristan_martinez.action_viaje_window">
+      <field name="name">examen1_tristan_martinez viaje window</field>
+      <field name="res_model">examen1_tristan_martinez.viaje</field>
+      <field name="view_mode">search,tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="examen1_tristan_martinez.action_server">
+      <field name="name">examen1_tristan_martinez server</field>
+      <field name="model_id" ref="model_examen1_tristan_martinez_examen1_tristan_martinez"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Examen 1r Trim" id="examen1_tristan_martinez.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Gestión" id="examen1_tristan_martinez.menu_1" parent="examen1_tristan_martinez.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Furgonetas" id="examen1_tristan_martinez.menu_furgoneta_list" parent="examen1_tristan_martinez.menu_1"
+              action="examen1_tristan_martinez.action_furgoneta_window"/>
+
+    <menuitem name="Paqutes" id="examen1_tristan_martinez.menu_paquete_list" parent="examen1_tristan_martinez.menu_1"
+              action="examen1_tristan_martinez.action_paquete_window"/>
+
+    <menuitem name="Viajes" id="examen1_tristan_martinez.menu_viaje_list" parent="examen1_tristan_martinez.menu_1"
+              action="examen1_tristan_martinez.action_viaje_window"/>
+
+  </data>
+</odoo>

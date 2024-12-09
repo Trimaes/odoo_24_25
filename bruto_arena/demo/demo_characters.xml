@@ -1,0 +1,499 @@
+<odoo>
+<data>
+<record id='characterCelisse' model='bruto_arena.character'>
+<field name='name'>Celisse</field>
+<field name='player' ref='bruto_arena.playerCelisse'></field>
+<field name='experience'>27283</field>
+</record>
+<record id='characterAvrit' model='bruto_arena.character'>
+<field name='name'>Avrit</field>
+<field name='player' ref='bruto_arena.playerLilas'></field>
+<field name='experience'>12923</field>
+</record>
+<record id='characterWilona' model='bruto_arena.character'>
+<field name='name'>Wilona</field>
+<field name='player' ref='bruto_arena.playerMeris'></field>
+<field name='experience'>26473</field>
+</record>
+<record id='characterMarcille' model='bruto_arena.character'>
+<field name='name'>Marcille</field>
+<field name='player' ref='bruto_arena.playerEwen'></field>
+<field name='experience'>25648</field>
+</record>
+<record id='characterMargi' model='bruto_arena.character'>
+<field name='name'>Margi</field>
+<field name='player' ref='bruto_arena.playerHenri'></field>
+<field name='experience'>4305</field>
+</record>
+<record id='characterShayne' model='bruto_arena.character'>
+<field name='name'>Shayne</field>
+<field name='player' ref='bruto_arena.playerJonis'></field>
+<field name='experience'>6952</field>
+</record>
+<record id='characterJill' model='bruto_arena.character'>
+<field name='name'>Jill</field>
+<field name='player' ref='bruto_arena.playerKip'></field>
+<field name='experience'>27483</field>
+</record>
+<record id='characterKandace' model='bruto_arena.character'>
+<field name='name'>Kandace</field>
+<field name='player' ref='bruto_arena.playerCthrine'></field>
+<field name='experience'>6731</field>
+</record>
+<record id='characterMeriel' model='bruto_arena.character'>
+<field name='name'>Meriel</field>
+<field name='player' ref='bruto_arena.playerHinze'></field>
+<field name='experience'>13511</field>
+</record>
+<record id='characterBrita' model='bruto_arena.character'>
+<field name='name'>Brita</field>
+<field name='player' ref='bruto_arena.playerGustave'></field>
+<field name='experience'>7672</field>
+</record>
+<record id='characterJanel' model='bruto_arena.character'>
+<field name='name'>Janel</field>
+<field name='player' ref='bruto_arena.playerDin'></field>
+<field name='experience'>19661</field>
+</record>
+<record id='characterJania' model='bruto_arena.character'>
+<field name='name'>Jania</field>
+<field name='player' ref='bruto_arena.playerObed'></field>
+<field name='experience'>27406</field>
+</record>
+<record id='characterOphelia' model='bruto_arena.character'>
+<field name='name'>Ophelia</field>
+<field name='player' ref='bruto_arena.playerJeremiah'></field>
+<field name='experience'>2085</field>
+</record>
+<record id='characterBethany' model='bruto_arena.character'>
+<field name='name'>Bethany</field>
+<field name='player' ref='bruto_arena.playerGayel'></field>
+<field name='experience'>18453</field>
+</record>
+<record id='characterPrissie' model='bruto_arena.character'>
+<field name='name'>Prissie</field>
+<field name='player' ref='bruto_arena.playerLodovico'></field>
+<field name='experience'>8531</field>
+</record>
+<record id='characterDorolice' model='bruto_arena.character'>
+<field name='name'>Dorolice</field>
+<field name='player' ref='bruto_arena.playerCthrine'></field>
+<field name='experience'>23740</field>
+</record>
+<record id='characterMyrtle' model='bruto_arena.character'>
+<field name='name'>Myrtle</field>
+<field name='player' ref='bruto_arena.playerRoland'></field>
+<field name='experience'>2218</field>
+</record>
+<record id='characterSiusan' model='bruto_arena.character'>
+<field name='name'>Siusan</field>
+<field name='player' ref='bruto_arena.playerStefanie'></field>
+<field name='experience'>12267</field>
+</record>
+<record id='characterCathee' model='bruto_arena.character'>
+<field name='name'>Cathee</field>
+<field name='player' ref='bruto_arena.playerRoland'></field>
+<field name='experience'>8077</field>
+</record>
+<record id='characterNikolia' model='bruto_arena.character'>
+<field name='name'>Nikolia</field>
+<field name='player' ref='bruto_arena.playerHinze'></field>
+<field name='experience'>16986</field>
+</record>
+<record id='characterRona' model='bruto_arena.character'>
+<field name='name'>Rona</field>
+<field name='player' ref='bruto_arena.playerJeremiah'></field>
+<field name='experience'>31867</field>
+</record>
+<record id='characterMechelle' model='bruto_arena.character'>
+<field name='name'>Mechelle</field>
+<field name='player' ref='bruto_arena.playerArtemis'></field>
+<field name='experience'>20681</field>
+</record>
+<record id='characterNan' model='bruto_arena.character'>
+<field name='name'>Nan</field>
+<field name='player' ref='bruto_arena.playerCthrine'></field>
+<field name='experience'>2315</field>
+</record>
+<record id='characterGlenna' model='bruto_arena.character'>
+<field name='name'>Glenna</field>
+<field name='player' ref='bruto_arena.playerRoland'></field>
+<field name='experience'>29326</field>
+</record>
+<record id='characterBerrie' model='bruto_arena.character'>
+<field name='name'>Berrie</field>
+<field name='player' ref='bruto_arena.playerRube'></field>
+<field name='experience'>30793</field>
+</record>
+<record id='characterSonya' model='bruto_arena.character'>
+<field name='name'>Sonya</field>
+<field name='player' ref='bruto_arena.playerMuire'></field>
+<field name='experience'>13602</field>
+</record>
+<record id='characterLayne' model='bruto_arena.character'>
+<field name='name'>Layne</field>
+<field name='player' ref='bruto_arena.playerStephana'></field>
+<field name='experience'>25960</field>
+</record>
+<record id='characterMichaelina' model='bruto_arena.character'>
+<field name='name'>Michaelina</field>
+<field name='player' ref='bruto_arena.playerMerlina'></field>
+<field name='experience'>27938</field>
+</record>
+<record id='characterLane' model='bruto_arena.character'>
+<field name='name'>Lane</field>
+<field name='player' ref='bruto_arena.playerSunny'></field>
+<field name='experience'>23189</field>
+</record>
+<record id='characterMalva' model='bruto_arena.character'>
+<field name='name'>Malva</field>
+<field name='player' ref='bruto_arena.playerVerene'></field>
+<field name='experience'>4947</field>
+</record>
+<record id='characterRubia' model='bruto_arena.character'>
+<field name='name'>Rubia</field>
+<field name='player' ref='bruto_arena.playerLianne'></field>
+<field name='experience'>21648</field>
+</record>
+<record id='characterAlaine' model='bruto_arena.character'>
+<field name='name'>Alaine</field>
+<field name='player' ref='bruto_arena.playerBryn'></field>
+<field name='experience'>12890</field>
+</record>
+<record id='characterMaggee' model='bruto_arena.character'>
+<field name='name'>Maggee</field>
+<field name='player' ref='bruto_arena.playerKeir'></field>
+<field name='experience'>1687</field>
+</record>
+<record id='characterNorene' model='bruto_arena.character'>
+<field name='name'>Norene</field>
+<field name='player' ref='bruto_arena.playerKatha'></field>
+<field name='experience'>14126</field>
+</record>
+<record id='characterCathe' model='bruto_arena.character'>
+<field name='name'>Cathe</field>
+<field name='player' ref='bruto_arena.playerCass'></field>
+<field name='experience'>6499</field>
+</record>
+<record id='characterAgna' model='bruto_arena.character'>
+<field name='name'>Agna</field>
+<field name='player' ref='bruto_arena.playerStefanie'></field>
+<field name='experience'>4232</field>
+</record>
+<record id='characterMadlin' model='bruto_arena.character'>
+<field name='name'>Madlin</field>
+<field name='player' ref='bruto_arena.playerHelen-elizabeth'></field>
+<field name='experience'>25642</field>
+</record>
+<record id='characterJasmina' model='bruto_arena.character'>
+<field name='name'>Jasmina</field>
+<field name='player' ref='bruto_arena.playerHester'></field>
+<field name='experience'>29975</field>
+</record>
+<record id='characterLeela' model='bruto_arena.character'>
+<field name='name'>Leela</field>
+<field name='player' ref='bruto_arena.playerEmilie'></field>
+<field name='experience'>1353</field>
+</record>
+<record id='characterLucie' model='bruto_arena.character'>
+<field name='name'>Lucie</field>
+<field name='player' ref='bruto_arena.playerKathryn'></field>
+<field name='experience'>13389</field>
+</record>
+<record id='characterElana' model='bruto_arena.character'>
+<field name='name'>Elana</field>
+<field name='player' ref='bruto_arena.playerMike'></field>
+<field name='experience'>17556</field>
+</record>
+<record id='characterHortensia' model='bruto_arena.character'>
+<field name='name'>Hortensia</field>
+<field name='player' ref='bruto_arena.playerRichardo'></field>
+<field name='experience'>1555</field>
+</record>
+<record id='characterKattie' model='bruto_arena.character'>
+<field name='name'>Kattie</field>
+<field name='player' ref='bruto_arena.playerMeris'></field>
+<field name='experience'>20379</field>
+</record>
+<record id='characterSabina' model='bruto_arena.character'>
+<field name='name'>Sabina</field>
+<field name='player' ref='bruto_arena.playerStefanie'></field>
+<field name='experience'>6092</field>
+</record>
+<record id='characterMerilee' model='bruto_arena.character'>
+<field name='name'>Merilee</field>
+<field name='player' ref='bruto_arena.playerTomaso'></field>
+<field name='experience'>19698</field>
+</record>
+<record id='characterLissie' model='bruto_arena.character'>
+<field name='name'>Lissie</field>
+<field name='player' ref='bruto_arena.playerStefanie'></field>
+<field name='experience'>9214</field>
+</record>
+<record id='characterAnnemarie' model='bruto_arena.character'>
+<field name='name'>Annemarie</field>
+<field name='player' ref='bruto_arena.playerObed'></field>
+<field name='experience'>643</field>
+</record>
+<record id='characterChristal' model='bruto_arena.character'>
+<field name='name'>Christal</field>
+<field name='player' ref='bruto_arena.playerKarlik'></field>
+<field name='experience'>29583</field>
+</record>
+<record id='characterStarlene' model='bruto_arena.character'>
+<field name='name'>Starlene</field>
+<field name='player' ref='bruto_arena.playerSydel'></field>
+<field name='experience'>26390</field>
+</record>
+<record id='characterAnselma' model='bruto_arena.character'>
+<field name='name'>Anselma</field>
+<field name='player' ref='bruto_arena.playerBryn'></field>
+<field name='experience'>11134</field>
+</record>
+<record id='characterZarah' model='bruto_arena.character'>
+<field name='name'>Zarah</field>
+<field name='player' ref='bruto_arena.playerPace'></field>
+<field name='experience'>11824</field>
+</record>
+<record id='characterGwenora' model='bruto_arena.character'>
+<field name='name'>Gwenora</field>
+<field name='player' ref='bruto_arena.playerFarleigh'></field>
+<field name='experience'>29890</field>
+</record>
+<record id='characterMarianna' model='bruto_arena.character'>
+<field name='name'>Marianna</field>
+<field name='player' ref='bruto_arena.playerTanney'></field>
+<field name='experience'>11723</field>
+</record>
+<record id='characterDiahann' model='bruto_arena.character'>
+<field name='name'>Diahann</field>
+<field name='player' ref='bruto_arena.playerMuire'></field>
+<field name='experience'>28491</field>
+</record>
+<record id='characterAshely' model='bruto_arena.character'>
+<field name='name'>Ashely</field>
+<field name='player' ref='bruto_arena.playerJerrine'></field>
+<field name='experience'>22883</field>
+</record>
+<record id='characterJana' model='bruto_arena.character'>
+<field name='name'>Jana</field>
+<field name='player' ref='bruto_arena.playerCosmo'></field>
+<field name='experience'>15706</field>
+</record>
+<record id='characterRuperta' model='bruto_arena.character'>
+<field name='name'>Ruperta</field>
+<field name='player' ref='bruto_arena.playerDorine'></field>
+<field name='experience'>29095</field>
+</record>
+<record id='characterKaralynn' model='bruto_arena.character'>
+<field name='name'>Karalynn</field>
+<field name='player' ref='bruto_arena.playerLianne'></field>
+<field name='experience'>10675</field>
+</record>
+<record id='characterTonia' model='bruto_arena.character'>
+<field name='name'>Tonia</field>
+<field name='player' ref='bruto_arena.playerPace'></field>
+<field name='experience'>13981</field>
+</record>
+<record id='characterAlyse' model='bruto_arena.character'>
+<field name='name'>Alyse</field>
+<field name='player' ref='bruto_arena.playerMahalia'></field>
+<field name='experience'>6060</field>
+</record>
+<record id='characterVilhelmina' model='bruto_arena.character'>
+<field name='name'>Vilhelmina</field>
+<field name='player' ref='bruto_arena.playerKer'></field>
+<field name='experience'>19224</field>
+</record>
+<record id='characterJerrine' model='bruto_arena.character'>
+<field name='name'>Jerrine</field>
+<field name='player' ref='bruto_arena.playerGianna'></field>
+<field name='experience'>31328</field>
+</record>
+<record id='characterLaney' model='bruto_arena.character'>
+<field name='name'>Laney</field>
+<field name='player' ref='bruto_arena.playerHenri'></field>
+<field name='experience'>25946</field>
+</record>
+<record id='characterPollyanna' model='bruto_arena.character'>
+<field name='name'>Pollyanna</field>
+<field name='player' ref='bruto_arena.playerMervin'></field>
+<field name='experience'>24915</field>
+</record>
+<record id='characterBrigitte' model='bruto_arena.character'>
+<field name='name'>Brigitte</field>
+<field name='player' ref='bruto_arena.playerWhit'></field>
+<field name='experience'>27844</field>
+</record>
+<record id='characterCandida' model='bruto_arena.character'>
+<field name='name'>Candida</field>
+<field name='player' ref='bruto_arena.playerFidelia'></field>
+<field name='experience'>11837</field>
+</record>
+<record id='characterLiana' model='bruto_arena.character'>
+<field name='name'>Liana</field>
+<field name='player' ref='bruto_arena.playerHester'></field>
+<field name='experience'>28699</field>
+</record>
+<record id='characterVanna' model='bruto_arena.character'>
+<field name='name'>Vanna</field>
+<field name='player' ref='bruto_arena.playerMelosa'></field>
+<field name='experience'>27726</field>
+</record>
+<record id='characterRonica' model='bruto_arena.character'>
+<field name='name'>Ronica</field>
+<field name='player' ref='bruto_arena.playerJerrine'></field>
+<field name='experience'>14688</field>
+</record>
+<record id='characterBirgitta' model='bruto_arena.character'>
+<field name='name'>Birgitta</field>
+<field name='player' ref='bruto_arena.playerFelicity'></field>
+<field name='experience'>15530</field>
+</record>
+<record id='characterCarleen' model='bruto_arena.character'>
+<field name='name'>Carleen</field>
+<field name='player' ref='bruto_arena.playerHester'></field>
+<field name='experience'>15449</field>
+</record>
+<record id='characterYolane' model='bruto_arena.character'>
+<field name='name'>Yolane</field>
+<field name='player' ref='bruto_arena.playerHelen-elizabeth'></field>
+<field name='experience'>18266</field>
+</record>
+<record id='characterReggi' model='bruto_arena.character'>
+<field name='name'>Reggi</field>
+<field name='player' ref='bruto_arena.playerSydel'></field>
+<field name='experience'>27865</field>
+</record>
+<record id='characterRochella' model='bruto_arena.character'>
+<field name='name'>Rochella</field>
+<field name='player' ref='bruto_arena.playerJeremiah'></field>
+<field name='experience'>24058</field>
+</record>
+<record id='characterKalila' model='bruto_arena.character'>
+<field name='name'>Kalila</field>
+<field name='player' ref='bruto_arena.playerBryn'></field>
+<field name='experience'>24653</field>
+</record>
+<record id='characterNadiya' model='bruto_arena.character'>
+<field name='name'>Nadiya</field>
+<field name='player' ref='bruto_arena.playerGothart'></field>
+<field name='experience'>701</field>
+</record>
+<record id='characterMattie' model='bruto_arena.character'>
+<field name='name'>Mattie</field>
+<field name='player' ref='bruto_arena.playerMike'></field>
+<field name='experience'>30148</field>
+</record>
+<record id='characterSusan' model='bruto_arena.character'>
+<field name='name'>Susan</field>
+<field name='player' ref='bruto_arena.playerEwen'></field>
+<field name='experience'>18966</field>
+</record>
+<record id='characterMarcie' model='bruto_arena.character'>
+<field name='name'>Marcie</field>
+<field name='player' ref='bruto_arena.playerTomaso'></field>
+<field name='experience'>28918</field>
+</record>
+<record id='characterFlorinda' model='bruto_arena.character'>
+<field name='name'>Florinda</field>
+<field name='player' ref='bruto_arena.playerPhylys'></field>
+<field name='experience'>29155</field>
+</record>
+<record id='characterLillian' model='bruto_arena.character'>
+<field name='name'>Lillian</field>
+<field name='player' ref='bruto_arena.playerMerlina'></field>
+<field name='experience'>22495</field>
+</record>
+<record id='characterOrsa' model='bruto_arena.character'>
+<field name='name'>Orsa</field>
+<field name='player' ref='bruto_arena.playerGothart'></field>
+<field name='experience'>29751</field>
+</record>
+<record id='characterBrit' model='bruto_arena.character'>
+<field name='name'>Brit</field>
+<field name='player' ref='bruto_arena.playerDedie'></field>
+<field name='experience'>10358</field>
+</record>
+<record id='characterAimee' model='bruto_arena.character'>
+<field name='name'>Aimee</field>
+<field name='player' ref='bruto_arena.playerMelosa'></field>
+<field name='experience'>22482</field>
+</record>
+<record id='characterLeodora' model='bruto_arena.character'>
+<field name='name'>Leodora</field>
+<field name='player' ref='bruto_arena.playerDori'></field>
+<field name='experience'>676</field>
+</record>
+<record id='characterCassondra' model='bruto_arena.character'>
+<field name='name'>Cassondra</field>
+<field name='player' ref='bruto_arena.playerManolo'></field>
+<field name='experience'>8821</field>
+</record>
+<record id='characterJuliana' model='bruto_arena.character'>
+<field name='name'>Juliana</field>
+<field name='player' ref='bruto_arena.playerLetitia'></field>
+<field name='experience'>28045</field>
+</record>
+<record id='characterValeria' model='bruto_arena.character'>
+<field name='name'>Valeria</field>
+<field name='player' ref='bruto_arena.playerSunny'></field>
+<field name='experience'>5529</field>
+</record>
+<record id='characterAlidia' model='bruto_arena.character'>
+<field name='name'>Alidia</field>
+<field name='player' ref='bruto_arena.playerWhit'></field>
+<field name='experience'>3356</field>
+</record>
+<record id='characterMarcellina' model='bruto_arena.character'>
+<field name='name'>Marcellina</field>
+<field name='player' ref='bruto_arena.playerRube'></field>
+<field name='experience'>25839</field>
+</record>
+<record id='characterGermana' model='bruto_arena.character'>
+<field name='name'>Germana</field>
+<field name='player' ref='bruto_arena.playerNorbert'></field>
+<field name='experience'>8789</field>
+</record>
+<record id='characterSharron' model='bruto_arena.character'>
+<field name='name'>Sharron</field>
+<field name='player' ref='bruto_arena.playerIrwinn'></field>
+<field name='experience'>8931</field>
+</record>
+<record id='characterHyacintha' model='bruto_arena.character'>
+<field name='name'>Hyacintha</field>
+<field name='player' ref='bruto_arena.playerHinze'></field>
+<field name='experience'>17503</field>
+</record>
+<record id='characterLindie' model='bruto_arena.character'>
+<field name='name'>Lindie</field>
+<field name='player' ref='bruto_arena.playerManolo'></field>
+<field name='experience'>16077</field>
+</record>
+<record id='characterLeora' model='bruto_arena.character'>
+<field name='name'>Leora</field>
+<field name='player' ref='bruto_arena.playerWang'></field>
+<field name='experience'>22880</field>
+</record>
+<record id='characterJaney' model='bruto_arena.character'>
+<field name='name'>Janey</field>
+<field name='player' ref='bruto_arena.playerRicoriki'></field>
+<field name='experience'>1318</field>
+</record>
+<record id='characterShela' model='bruto_arena.character'>
+<field name='name'>Shela</field>
+<field name='player' ref='bruto_arena.playerAurlie'></field>
+<field name='experience'>24118</field>
+</record>
+<record id='characterRhiamon' model='bruto_arena.character'>
+<field name='name'>Rhiamon</field>
+<field name='player' ref='bruto_arena.playerSunny'></field>
+<field name='experience'>1250</field>
+</record>
+<record id='characterHeath' model='bruto_arena.character'>
+<field name='name'>Heath</field>
+<field name='player' ref='bruto_arena.playerPace'></field>
+<field name='experience'>15048</field>
+</record>
+</data>
+</odoo>

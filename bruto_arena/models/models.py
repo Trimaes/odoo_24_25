@@ -1,29 +1,68 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+import random
 #Jugadores
 class player(models.Model):
     _name = 'bruto_arena.player'
     _description = 'Players'
 
     name = fields.Char()
+    photo = fields.Image(max_width=200, max_height=200)
     #Relation
     characters = fields.One2many(string='Characters', comodel_name='bruto_arena.character', inverse_name='player')
+    #CONSTRAINTS
+    _sql_constraints = [('name_uniq', 'unique(name)', 'This name already exists')]
+
 #Personajes
 class character(models.Model):
     _name = 'bruto_arena.character'
     _description = 'Characters'
 
     name = fields.Char()
-    level = fields.Integer()
-    experience = fields.Integer()
-    health = fields.Integer()
-    strength = fields.Integer()
-    agility = fields.Integer()
-    speed = fields.Integer()
-    resistance = fields.Integer()
+    victories = fields.Integer(readonly=True)
+    experience = fields.Integer(readonly=True)
+    
+    
+    #action
+    def fight(self):
+        for c in self:
+            c.victories += 1
+    
+    #Default/Compute
+    def _generate_health_value(self):
+        return random.randint(80,95)
+    health = fields.Integer(default=_generate_health_value, readonly=True)
+    
+    def _generate_stats(self):
+        print('################ GENERANDO STATS #################')
+        return random.randint(1,10)
+
+    strength = fields.Integer(default=_generate_stats, readonly=True)
+    agility = fields.Integer(default=_generate_stats, readonly=True)
+    speed = fields.Integer(default=_generate_stats, readonly=True)
+    resistance = fields.Integer(compute='_generate_resistance', store=True, readonly=True)
+    level = fields.Integer(compute='_lvl_up', readonly=True)
+
+    #Computa la resistencia en función de agility, strength y health
+    @api.depends('agility', 'strength', 'health')
+    def _generate_resistance(self):
+        for c in self:
+            c.resistance = (c.agility // 5) + (c.strength // 5) + (c.health //10)
+
+    #CSube el nivel del PJ a cada 1000 puntos de Xp
+    @api.depends('experience')
+    def _lvl_up(self):
+        for c in self:
+            c.level = 1 + (c.experience // 1000)
+
+
     #Relations
-    player = fields.Many2one(string='Player', comodel_name='bruto_arena.player')
+    player = fields.Many2one(string='Player', comodel_name='bruto_arena.player', required=True)
+
+    ranking = fields.Many2one(string='Rankings', comodel_name='bruto_arena.ranking')
+    
     skills = fields.Many2many(comodel_name='bruto_arena.skill',
                               relation='character_skills',
                               column1='character_name',
@@ -38,11 +77,10 @@ class character(models.Model):
                               relation='character_pets',
                               column1='character_name',
                               column2='character_pets')
-
-    mounts = fields.Many2many(comodel_name='bruto_arena.mount',
-                              relation='character_mounts',
-                              column1='character_name',
-                              column2='character_mounts')
+    
+    #CONSTRAINTS
+    _sql_constraints = [('name_uniq', 'unique(name)', 'This name already exists')]
+    
 #Habilidades
 class skill(models.Model):
     _name = 'bruto_arena.skill'
@@ -68,23 +106,7 @@ class weapon(models.Model):
     combo_rate = fields.Integer()
     disarm_rate = fields.Integer()
     precision = fields.Integer()
-    evasion = fields.Integer()
     block_rate = fields.Integer()
-    accuracy = fields.Integer()
-
-#Armadura
-#class armor(models.Model):
-#    _name = 'bruto_arena.armor'
-#    _description = 'Armor'
-    #Stats visibles:
-#    name = fields.Char()
-#    weapon_description = fields.Text()
-#    armor = fields.Integer()
-#    Bonus:
-#    interval = fields.Integer()
-#    reversal_rate = fields.Integer() #Contraataque 
-#    evasion = fields.Integer()
-#    block_rate = fields.Integer()
 
 #Mascotas
 class pet(models.Model):
@@ -97,18 +119,18 @@ class pet(models.Model):
     agility = fields.Integer()
     speed =  fields.Integer()
     combo_rate = fields.Integer()
-    evasion = fields.Integer()
-    initiative = fields.Integer()
 
     pet_description = fields.Text()
-#Monturas
-class mount(models.Model):
-    _name = 'bruto_arena.mount'
-    _description = 'Mounts'
 
-    name = fields.Char()
-    #Añadir boost
-    mount_description = fields.Text()
+#Ranking
+class ranking(models.Model):
+    _name = 'bruto_arena.ranking'
+    _description = 'Ranking'
+
+    name = fields.Char(required=True, readonly=True)
+    characters = fields.One2many(string='Characters', comodel_name='bruto_arena.character', inverse_name='ranking')
+
+
 
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)

@@ -13,6 +13,7 @@ class student(models.Model):
      enrollment_date = fields.Date()
      last_login = fields.Datetime()
      is_student = fields.Boolean()
+     password = fields.Char()
      photo = fields.Image(max_width=200, max_height=200)
      classroom = fields.Many2one('school.classroom', ondelete='set null', help='La clase a la que va')
      teachers = fields.Many2many('school.teacher', related='classroom.teachers', readonly=True)
@@ -38,6 +39,9 @@ class teacher(models.Model):
      _description = 'Los profesores'
 
      name = fields.Char()
+     topic = fields.Char()
+     phone = fields.Char()
+
      classrooms = fields.Many2many('school.classroom',
                                    relation='teachers_classrooms',
                                    column2='classroom_id',

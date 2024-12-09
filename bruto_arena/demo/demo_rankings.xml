@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id='rankingPlata' model='bruto_arena.ranking'>
+            <field name='name'>Plata</field>
+        </record>
+        <record id='rankingOro' model='bruto_arena.ranking'>
+            <field name='name'>Oro</field>
+        </record>
+        <record id='rankingDiamante' model='bruto_arena.ranking'>
+            <field name='name'>Diamante</field>
+        </record>
+    </data>
+</odoo>
