@@ -32,6 +32,8 @@ Long description of module's purpose
         'demo/demo_players.xml',
         'demo/demo_characters.xml',
         'demo/demo_rankings.xml',
+        'demo/demo_skills.xml',
+        'demo/demo_weapons.xml'
     ],
 }
 

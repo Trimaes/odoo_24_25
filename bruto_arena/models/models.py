@@ -3,6 +3,8 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import random
+from datetime import datetime
+
 #Jugadores
 class player(models.Model):
     _name = 'bruto_arena.player'
@@ -10,6 +12,7 @@ class player(models.Model):
 
     name = fields.Char()
     photo = fields.Image(max_width=200, max_height=200)
+    state = fields.Selection([('1', 'Player')])
     #Relation
     characters = fields.One2many(string='Characters', comodel_name='bruto_arena.character', inverse_name='player')
     #CONSTRAINTS
@@ -23,7 +26,13 @@ class character(models.Model):
     name = fields.Char()
     victories = fields.Integer(readonly=True)
     experience = fields.Integer(readonly=True)
+    last_fight_date = fields.Datetime(compute='_last_fight', store=True, readonly=True)
+    state = fields.Selection([('1', 'Player'),('2','Character')])
     
+    @api.depends('victories')
+    def _last_fight(self):
+        for r in self:
+            r.last_fight_date = datetime.now()
     
     #action
     def fight(self):
@@ -60,6 +69,7 @@ class character(models.Model):
 
     #Relations
     player = fields.Many2one(string='Player', comodel_name='bruto_arena.player', required=True)
+    player_name = fields.Char(related='player.name')
 
     ranking = fields.Many2one(string='Rankings', comodel_name='bruto_arena.ranking')
     
@@ -90,6 +100,7 @@ class skill(models.Model):
     type = fields.Char()
     odds = fields.Float()
     skill_description = fields.Text()
+    state = fields.Selection([('1', 'Character'),('2','Skill')])
 #Armas
 class weapon(models.Model):
     _name = 'bruto_arena.weapon'
@@ -99,6 +110,7 @@ class weapon(models.Model):
     type = fields.Char()
     damage = fields.Integer()
     odds = fields.Float() #Probabilidad de que se use el arma en combate
+    state = fields.Selection([('1', 'Character'),('2','Weapon')])
     #Boost:
     interval = fields.Integer()
     reach = fields.Integer()
@@ -121,6 +133,7 @@ class pet(models.Model):
     combo_rate = fields.Integer()
 
     pet_description = fields.Text()
+    state = fields.Selection([('1', 'Character'),('2','Pet')])
 
 #Ranking
 class ranking(models.Model):
@@ -129,6 +142,7 @@ class ranking(models.Model):
 
     name = fields.Char(required=True, readonly=True)
     characters = fields.One2many(string='Characters', comodel_name='bruto_arena.character', inverse_name='ranking')
+    state = fields.Selection([('1', 'Character'),('2','Ranking')])
 
 
 

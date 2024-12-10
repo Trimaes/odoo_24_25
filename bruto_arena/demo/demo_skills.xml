@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="skill_1" model="bruto_arena.skill">
+            <field name="name">Power Strike</field>
+            <field name="type">Offensive</field>
+            <field name="odds">0.7</field>
+            <field name="skill_description">A strong and precise attack aimed to deal maximum damage.</field>
+        </record>
+        <record id="skill_2" model="bruto_arena.skill">
+            <field name="name">Shield Block</field>
+            <field name="type">Defensive</field>
+            <field name="odds">0.8</field>
+            <field name="skill_description">Uses a shield to block incoming attacks effectively.</field>
+        </record>
+        <record id="skill_3" model="bruto_arena.skill">
+            <field name="name">Flame Burst</field>
+            <field name="type">Magical</field>
+            <field name="odds">0.6</field>
+            <field name="skill_description">Unleashes a burst of flame to burn enemies in range.</field>
+        </record>
+        <record id="skill_4" model="bruto_arena.skill">
+            <field name="name">Stealth</field>
+            <field name="type">Utility</field>
+            <field name="odds">0.5</field>
+            <field name="skill_description">Allows the user to become invisible for a short duration.</field>
+        </record>
+        <record id="skill_5" model="bruto_arena.skill">
+            <field name="name">Healing Touch</field>
+            <field name="type">Support</field>
+            <field name="odds">0.9</field>
+            <field name="skill_description">Restores health to an ally or the user.</field>
+        </record>
+        <record id="skill_6" model="bruto_arena.skill">
+            <field name="name">Whirlwind</field>
+            <field name="type">Offensive</field>
+            <field name="odds">0.6</field>
+            <field name="skill_description">A spinning attack that hits all nearby enemies.</field>
+        </record>
+        <record id="skill_7" model="bruto_arena.skill">
+            <field name="name">Ice Barrier</field>
+            <field name="type">Defensive</field>
+            <field name="odds">0.7</field>
+            <field name="skill_description">Creates a shield of ice to absorb damage.</field>
+        </record>
+        <record id="skill_8" model="bruto_arena.skill">
+            <field name="name">Lightning Strike</field>
+            <field name="type">Magical</field>
+            <field name="odds">0.65</field>
+            <field name="skill_description">Summons a bolt of lightning to strike a target.</field>
+        </record>
+        <record id="skill_9" model="bruto_arena.skill">
+            <field name="name">Berserk</field>
+            <field name="type">Offensive</field>
+            <field name="odds">0.5</field>
+            <field name="skill_description">Increases attack power significantly at the cost of defense.</field>
+        </record>
+        <record id="skill_10" model="bruto_arena.skill">
+            <field name="name">Energy Shield</field>
+            <field name="type">Support</field>
+            <field name="odds">0.85</field>
+            <field name="skill_description">Generates a protective shield that absorbs a portion of damage.</field>
+        </record>
+    </data>
+</odoo>

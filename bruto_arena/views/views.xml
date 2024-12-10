@@ -19,6 +19,7 @@
       <field name="arch" type="xml">
         <tree decoration-success="level&gt;20">
           <field name="name"/>
+          <field name="player_name" string='Owner'/>
           <field name="level"/>
           <field name="victories"/>
           <field name="ranking"/>
@@ -80,6 +81,9 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
+             <header>
+                <field name="state" widget='statusbar'/>
+              </header>
               <field name="photo" widget="image"/>
               <group>
                 <group>
@@ -88,7 +92,12 @@
                 </group>
                 <group>
                   <separator string="Characters"></separator>
-                  <field name="characters"/>
+                  <field name="characters">
+                    <tree>
+                      <field name="name"/>
+                      <field name="level"/>
+                    </tree>
+                  </field>
                 </group>
               </group>
             </sheet>
@@ -103,20 +112,27 @@
         <form>
             <sheet>
               <!--<field name="photo" widget="image"/>-->
-              <header><button name="fight" type="object" class="oe_highlight" string="Fight"/></header>
+              <header>
+                <field name="state" widget='statusbar'/>
+                <button name="fight" type="object" class="oe_highlight" string="Fight"/>
+              </header>
               <group>
                 <group>
-                  <separator string="Character"></separator>
+                  <separator string="character"></separator>
                   <field name="name"/>
                   <field name="experience"/>
                   <field name="level"/>
                   <field name="player"/>
+                </group>
+                <group>
+                  <separator string="battle information"></separator>
+                  <field name="last_fight_date"/>
                   <field name="victories"/>
                   <field name="ranking"/>
                 </group>
                 <group>
-                  <separator string="Stats"></separator>
-                  <field name="health"/>
+                  <separator string="stats"></separator>
+                  <field name="health" widget="progressbar"/>
                   <field name="strength"/>
                   <field name="agility"/>
                   <field name="speed"/>
@@ -157,6 +173,9 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
+            <header>
+                <field name="state" widget='statusbar'/>
+              </header>
               <group>
                 <group>
                   <separator string="Skill"></separator>
@@ -180,6 +199,9 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
+            <header>
+                <field name="state" widget='statusbar'/>
+              </header>
               <group>
                 <group>
                   <separator string="Weapon"></separator>
@@ -209,6 +231,9 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
+            <header>
+                <field name="state" widget='statusbar'/>
+              </header>
               <group>
                 <group>
                   <separator string="Pet"></separator>
@@ -216,7 +241,7 @@
                 </group>
                 <group>
                   <separator string="Stats"></separator>
-                  <field name="health"/>
+                  <field name="health" widget="progressbar"/>
                   <field name="damage"/>
                   <field name="agility"/>
                   <field name="speed"/>
@@ -241,6 +266,9 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
+            <header>
+                <field name="state" widget='statusbar'/>
+              </header>
               <group>
                 <group>
                   <separator string="Ranking"></separator>
@@ -262,40 +290,52 @@
       </field>
     </record>
 
+    <!--SEARCH-->
+  <record id="bruto_arena_view_search" model="ir.ui.view">
+      <field name="name">bruto_arena character search</field>
+      <field name="model">bruto_arena.character</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <filter name="group_by_ranking" string="Ranking position" context="{'group_by': 'ranking'}"/>
+        </search>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="bruto_arena.action_player_window">
-      <field name="name">bruto arena player window</field>
+      <field name="name">Players</field>
       <field name="res_model">bruto_arena.player</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_character_window">
-      <field name="name">bruto arena character window</field>
+      <field name="name">Characters</field>
       <field name="res_model">bruto_arena.character</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,search</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_skill_window">
-      <field name="name">bruto arena skill window</field>
+      <field name="name">Skills</field>
       <field name="res_model">bruto_arena.skill</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_weapon_window">
-      <field name="name">bruto arena weapon window</field>
+      <field name="name">Weapons</field>
       <field name="res_model">bruto_arena.weapon</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_pet_window">
-      <field name="name">bruto arena pet window</field>
+      <field name="name">Pets</field>
       <field name="res_model">bruto_arena.pet</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_ranking_window">
-      <field name="name">bruto arena ranking window</field>
+      <field name="name">Ranking</field>
       <field name="res_model">bruto_arena.ranking</field>
       <field name="view_mode">tree,form</field>
     </record>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="weapon_1" model="bruto_arena.weapon">
+            <field name="name">Excalibur</field>
+            <field name="type">Sword</field>
+            <field name="damage">100</field>
+            <field name="odds">0.5</field>
+            <field name="interval">3</field>
+            <field name="reach">2</field>
+            <field name="reversal_rate">15</field>
+            <field name="combo_rate">20</field>
+            <field name="disarm_rate">5</field>
+            <field name="precision">90</field>
+            <field name="block_rate">10</field>
+        </record>
+        <record id="weapon_2" model="bruto_arena.weapon">
+            <field name="name">Longbow</field>
+            <field name="type">Bow</field>
+            <field name="damage">75</field>
+            <field name="odds">0.6</field>
+            <field name="interval">4</field>
+            <field name="reach">10</field>
+            <field name="reversal_rate">5</field>
+            <field name="combo_rate">10</field>
+            <field name="disarm_rate">2</field>
+            <field name="precision">85</field>
+            <field name="block_rate">5</field>
+        </record>
+        <record id="weapon_3" model="bruto_arena.weapon">
+            <field name="name">War Hammer</field>
+            <field name="type">Hammer</field>
+            <field name="damage">120</field>
+            <field name="odds">0.4</field>
+            <field name="interval">5</field>
+            <field name="reach">1</field>
+            <field name="reversal_rate">10</field>
+            <field name="combo_rate">5</field>
+            <field name="disarm_rate">8</field>
+            <field name="precision">80</field>
+            <field name="block_rate">20</field>
+        </record>
+        <record id="weapon_4" model="bruto_arena.weapon">
+            <field name="name">Dagger</field>
+            <field name="type">Knife</field>
+            <field name="damage">50</field>
+            <field name="odds">0.7</field>
+            <field name="interval">2</field>
+            <field name="reach">1</field>
+            <field name="reversal_rate">20</field>
+            <field name="combo_rate">25</field>
+            <field name="disarm_rate">15</field>
+            <field name="precision">95</field>
+            <field name="block_rate">5</field>
+        </record>
+        <record id="weapon_5" model="bruto_arena.weapon">
+            <field name="name">Katana</field>
+            <field name="type">Sword</field>
+            <field name="damage">90</field>
+            <field name="odds">0.55</field>
+            <field name="interval">3</field>
+            <field name="reach">2</field>
+            <field name="reversal_rate">18</field>
+            <field name="combo_rate">30</field>
+            <field name="disarm_rate">10</field>
+            <field name="precision">92</field>
+            <field name="block_rate">15</field>
+        </record>
+    </data>
+</odoo>
