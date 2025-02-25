@@ -4,7 +4,7 @@
     <!--TREE-->
     <record model="ir.ui.view" id="bruto_arena.player_list">
       <field name="name">bruto arena player list</field>
-      <field name="model">bruto_arena.player</field>
+      <field name="model">res.partner</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -19,7 +19,7 @@
       <field name="arch" type="xml">
         <tree decoration-success="level&gt;20">
           <field name="name"/>
-          <field name="player_name" string='Owner'/>
+          <!--<field name="player_name" string='Owner'/>-->
           <field name="level"/>
           <field name="victories"/>
           <field name="ranking"/>
@@ -73,18 +73,52 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="bruto_arena.xpbooster_list">
+      <field name="name">bruto arena xpbooster list</field>
+      <field name="model">purchase.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="boost"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--FORM HERENCIA-->
+
+    <record model="ir.ui.view" id="bruto_arena.player_partner_form">
+      <field name="name">bruto_arena player form inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="vat" position="after">
+
+        <group>
+          <field name="characters">
+            <tree>
+              <field name="name"/>
+              <field name="level"/>
+            </tree>
+          </field>
+        </group>
+
+        </field>
+      </field>
+    </record>
+
     <!--FORM-->
 
     <record model="ir.ui.view" id="bruto_arena.player_form">
       <field name="name">bruto arena player form</field>
-      <field name="model">bruto_arena.player</field>
+      <field name="model">res.partner</field>
       <field name="arch" type="xml">
         <form>
             <sheet>
              <header>
                 <field name="state" widget='statusbar'/>
+                <!--wizard-->
+                <button name="%(bruto_arena.action_create_character_wizard)d" type="action" string="Create new character" class="btn-primary"/>
               </header>
-              <field name="photo" widget="image"/>
+              <field name="image_128" widget="image"/>
               <group>
                 <group>
                   <separator string="Name"></separator>
@@ -123,6 +157,7 @@
                   <field name="experience"/>
                   <field name="level"/>
                   <field name="player"/>
+                  <field name="xp_boost"/>
                 </group>
                 <group>
                   <separator string="battle information"></separator>
@@ -148,7 +183,7 @@
                   </field>
                 </page>
                 <page string="Weapons">
-                  <field name="weapons">
+                  <field name="weapons" context="{'form_view_ref':'bruto_arena.weapon_form','default_damage':25}">
                     <tree>
                       <field name="name"/>
                     </tree>
@@ -182,6 +217,7 @@
                   <field name="name"/>
                   <field name="type"/>
                   <field name="odds"/>
+                  <field name="required_level"/>
                 </group>
                 <group>
                   <separator string="Description"></separator>
@@ -206,6 +242,7 @@
                 <group>
                   <separator string="Weapon"></separator>
                   <field name="name"/>
+                  <field name="required_level"/>
                   <field name="type"/>
                   <field name="odds"/>
                 </group>
@@ -290,6 +327,28 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="bruto_arena.xpbooster_form">
+      <field name="name">bruto arena xp booster</field>
+      <field name="priority">17</field>
+      <field name="model">purchase.order</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+            <header>
+              </header>
+              <group>
+                <group>
+                  <separator string="Booster type"></separator>
+                  <field name="name" readonly="0" string="Boost"/>
+                  <field name="partner_id" invisible="1"/>
+                  <field name="company_id" invisible="1"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
     <!--SEARCH-->
   <record id="bruto_arena_view_search" model="ir.ui.view">
       <field name="name">bruto_arena character search</field>
@@ -298,22 +357,81 @@
         <search>
           <field name="name"/>
           <filter name="group_by_ranking" string="Ranking position" context="{'group_by': 'ranking'}"/>
+          <filter name="last_fighters" string="Last fighters" domain="[('last_fight_date', '>=',  context_today())]"/>
         </search>
       </field>
+    </record>
+
+    <record id="bruto_arena_view_search_player" model="ir.ui.view">
+      <field name="name">bruto_arena player search</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <filter name="group_by_characters" string="Has characters" context="{'group_by': 'characters'}"/>
+        </search>
+      </field>
+    </record>
+
+    <!--GRAPH-->
+    <record id="bruto_arena_view_character_graph" model="ir.ui.view">
+      <field name="name">bruto_arena character graph</field>
+      <field name="model">bruto_arena.character_graph</field>
+      <field name="arch" type="xml">
+        <graph string='Character statistics' type='line'>
+          <field name="name" type="row"/>
+          <field name="character" type="col"/>
+          <field name="victories" type="measure"/>
+        </graph>
+      </field>
+    </record>
+
+    <!-- CRON-->
+
+    <record model="ir.cron" forcecreate="True" id="bruto_arena.character_cron_fight">
+      <field name="name">Character Cron</field>
+      <field name="model_id" ref="model_bruto_arena_character"/>
+      <field name="state">code</field>
+      <field name="code">model.cron_fight()</field>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">30</field>
+      <field name="interval_type">minutes</field>
+      <field name="numbercall">-1</field>
+      <field name="type">specific</field>
+      <field name="doall" eval="False"/>
+    </record>
+
+    <record model="ir.cron" forcecreate="True" id="bruto_arena.character_cron_graph">
+      <field name="name">Character Cron</field>
+      <field name="model_id" ref="model_bruto_arena_character"/>
+      <field name="state">code</field>
+      <field name="code">model.update_graph()</field>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">60</field>
+      <field name="interval_type">minutes</field>
+      <field name="numbercall">-1</field>
+      <field name="type">specific</field>
+      <field name="doall" eval="False"/>
     </record>
 
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="bruto_arena.action_player_window">
       <field name="name">Players</field>
-      <field name="res_model">bruto_arena.player</field>
+      <field name="res_model">res.partner</field>
       <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="bruto_arena_view_search_player"/>
+
+      <field name="view_ids" eval="[(5,0,0),
+      (0,0, {'view_mode' : 'tree', 'view_id' : ref('bruto_arena.player_list')}),
+      (0,0, {'view_mode' : 'form', 'view_id' : ref('bruto_arena.player_form')})]"/>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_character_window">
       <field name="name">Characters</field>
       <field name="res_model">bruto_arena.character</field>
-      <field name="view_mode">tree,form,search</field>
+      <field name="view_mode">tree,form,search,graph</field>
+      <field name="context">{'search_default_last_fighters' : 1}</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_skill_window">
@@ -326,6 +444,7 @@
       <field name="name">Weapons</field>
       <field name="res_model">bruto_arena.weapon</field>
       <field name="view_mode">tree,form</field>
+      <field name="context">{'default_required_level' : '10'}</field>
     </record>
 
     <record model="ir.actions.act_window" id="bruto_arena.action_pet_window">
@@ -338,6 +457,15 @@
       <field name="name">Ranking</field>
       <field name="res_model">bruto_arena.ranking</field>
       <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="bruto_arena.action_xpbooster_window">
+      <field name="name">XP Booster Shop</field>
+      <field name="res_model">purchase.order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_ids" eval="[(5,0,0),
+      (0,0, {'view_mode' : 'tree', 'view_id' : ref('bruto_arena.xpbooster_list')}),
+      (0,0, {'view_mode' : 'form', 'view_id' : ref('bruto_arena.xpbooster_form')})]"/>
     </record>
 
     <!-- server action to the one above -->
@@ -383,6 +511,9 @@
               
     <menuitem name="Ranking" id="bruto_arena.menu_ranking_list" parent="bruto_arena.menu_1"
               action="bruto_arena.action_ranking_window"/>
+
+    <menuitem name="XP Booster Shop" id="bruto_arena.menu_ranking_list" parent="bruto_arena.menu_1"
+              action="bruto_arena.action_xpbooster_window"/>
 
   </data>
 </odoo>

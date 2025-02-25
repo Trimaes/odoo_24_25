@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="bruto_arena.wizard_character_form">
+            <field name="name">wizard character form</field>
+            <field name="model">bruto_arena.character_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="player"/>
+                        </group>
+                        <group col="3" string="Skills">
+                            <field name="skill_name"/>
+                            <button name="add_skill" type="object" string="Add skill" class="oe_highlight"></button>
+                        </group>
+                        <group>
+                            <field name="skills"/>
+                        </group>
+                        <group col="5" string="Weapons">
+                            <field name="weapon_name"/>
+                            <field name="weapon_damage"/>
+                            <button name="add_weapon" type="object" string="Add weapon" class="oe_highlight"></button>
+                        </group>
+                        <group>
+                            <field name="weapons"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="create_character" type="object" string="Create" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bruto_arena.player_aux_form">
+            <field name="name">.player_aux_form</field>
+            <field name="model">bruto_arena.player_aux</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+<!--
+        <act_window  id="action_create_character_wizard" 
+                        name="create character wizard"
+                        src_model="res.partner"
+                        res_model="bruto_arena.character_wizard"
+                        view_mode="form"
+                        target="new"/>
+-->       
+        <record model="ir.actions.act_window" id="bruto_arena.action_create_character_wizard">
+            <field name="name">create character wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bruto_arena.character_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bruto_arena.wizard_character_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bruto_arena.action_player_aux_form">
+            <field name="name">player aux form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bruto_arena.player_aux</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="bruto_arena.player_aux_form"/>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</odoo>

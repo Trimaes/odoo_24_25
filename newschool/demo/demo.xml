@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <record id="newschool.teacher1" model="newschool.teacher">
+          <field name="name">Juan</field>
+        </record>
+
+        <record id="newschool.teacher2" model="newschool.teacher">
+          <field name="name">Enrique</field>
+        </record>
+
+        <!-- Datos dmo de 'eliminar' -->
+        <!-- <delete model="newschool.classroom" id="newschool.classroom1"></delete> -->
+
+        <!--FIELDS Many2many, pasar lista de profesores: 'eval' -->
+        <record id="newschool.classroom1" model="newschool.classroom">
+          <field name="name">1DAM</field>
+          <field name="teachers" eval="[(6,0,[ref('newschool.teacher1'),ref('newschool.teacher2')])]"></field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,10 +1,24 @@
 <odoo>
     <data>
-    <!--
-          <record id="player" model="bruto_arena.player">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+    
+          <record id="xp2" model="purchase.order">
+            <field name="name">XP BOOST x2</field>
           </record>
-    -->
+          <record id="xp3" model="purchase.order">
+            <field name="name">XP BOOST x3</field>
+          </record>
+          <record id="xp4" model="purchase.order">
+            <field name="name">XP BOOST x4</field>
+          </record>
+          <record id="xp5" model="purchase.order">
+            <field name="name">XP BOOST x5</field>
+          </record>
+          <record id="xp6" model="purchase.order">
+            <field name="name">XP BOOST x6</field>
+          </record>
+          <record id="xp7" model="purchase.order">
+            <field name="name">XP BOOST x7</field>
+          </record>
+    
     </data>
 </odoo>

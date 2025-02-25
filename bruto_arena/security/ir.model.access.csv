@@ -1,5 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_bruto_arena_player,bruto_arena.player,model_bruto_arena_player,base.group_user,1,1,1,1
+
+access_bruto_arena_skill_aux,bruto_arena.skill_aux,model_bruto_arena_skill_aux,base.group_user,1,1,1,1
+access_bruto_arena_weapon_aux,bruto_arena.weapon_aux,model_bruto_arena_weapon_aux,base.group_user,1,1,1,1
+access_bruto_arena_player_aux,bruto_arena.player_aux,model_bruto_arena_player_aux,base.group_user,1,1,1,1
+access_bruto_arena_character_wizard,bruto_arena.character_wizard,model_bruto_arena_character_wizard,base.group_user,1,1,1,1
 access_bruto_arena_character,bruto_arena.character,model_bruto_arena_character,base.group_user,1,1,1,1
 access_bruto_arena_skill,bruto_arena.skill,model_bruto_arena_skill,base.group_user,1,1,1,1
 access_bruto_arena_weapon,bruto_arena.weapon,model_bruto_arena_weapon,base.group_user,1,1,1,1

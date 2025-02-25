@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_newschool_course,newschool.course,model_newschool_course,base.group_user,1,1,1,1
+access_newschool_classroom,newschool.classroom,model_newschool_classroom,base.group_user,1,1,1,1
+access_newschool_teacher,newschool.teacher,model_newschool_teacher,base.group_user,1,1,1,1
+access_newschool_seminar,newschool.seminar,model_newschool_seminar,base.group_user,1,1,1,1

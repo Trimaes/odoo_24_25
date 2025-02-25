@@ -1,0 +1,467 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- TREE -->
+
+    <record model="ir.ui.view" id="newschool.student_list">
+      <field name="name">newschool student list</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <!-- tree attr -->
+        <!-- COLOR DE LETRAS -->
+        <!-- <tree decoration-info="birth_year>2000"> -->
+        <!-- EDITABLE -->
+        <!-- <tree editable="bottom"> -->
+        <tree decoration-info="birth_year&gt;2000" decoration-warning="birth_year&lt;1980">
+          <field name="name"/>
+          <!-- INVISIBLE -->
+          <!-- <field name="birth_year" invisible="1"/> -->
+          <!-- OBTENER UN TOTAL -->
+          <!-- <<field name="birth_year" sum="Total"/>> -->
+          <field name="birth_year" sum="Total"/>
+          <field name="password"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="newschool.student_list2">
+      <field name="name">newschool student list 2</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <tree decoration-warning="classroom==False">
+          <field name="name"/>
+          <field name="dni"/>
+          <field name="classroom"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="newschool.teacher_list">
+      <field name="name">newschool teacher list</field>
+      <field name="model">newschool.teacher</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="topic"/>
+          <field name="phone"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- FORM HEREDADO -->
+    <!-- Se tiene que buscar un field que ya exista en el formulario de res partner,
+     para usarlo como referencia para posicionar los fields que se quieren incluir en la herencia,
+     en este caso se posiciona despues del field vat los datos del student,
+     name de estudent no es necesario incluirlo porque ya lo tiene --> 
+    
+    <record model="ir.ui.view" id="newschool.student_partner_form">
+      <field name="name">newschool student form inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="vat" position="after">
+          <!--<form>-->
+          <!--Si no esta dentro de un group no aparecen las etiquetas de cada campo. Alternativa definir un string para cada campo en el modelo-->
+          <group>
+        
+            <field name="birth_year"/>
+            <field name="password"/>
+            <field name="description"/>
+            <field name="enrollment_date"/>
+            <field name="last_login"/>
+            <field name="is_student"/>
+            <field name="classroom" invisible="is_student == False or level == False" required="is_student == True"/>
+            <field name="level"/>
+
+          </group>
+          <group>
+            <field name="teachers">
+              <tree>
+                <field name="name"/>
+                <field name="topic"/>
+              </tree>
+            </field>
+          </group>
+          <!--</form>-->
+        </field>
+      </field>
+    </record>
+    
+
+    <!-- FORM -->
+
+    <record model="ir.ui.view" id="newschool.student_form">
+      <field name="name">newschool student form</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <!-- Importante tener un campo state en models.py en el modelo correspondiente -->
+            <field name="state" widget="statusbar"></field>
+            <button name="regenerate_password" type="object" icon="fa-random" string="Regenerate password"/>
+            <!--Mostrar acciones de tipo window-->
+            <button name="open_student" type="object" icon="fa-plus" string="Open student"/>
+            <button name="%(newschool.action_student_modal)d" type="action" class="btn" icon="fa-plus" string="Open student Type Action"/>
+          </header>
+          <sheet>
+            <!-- Usar <buttonBox> -->
+            <!--<div class="oe_button_box">
+                <button name="regenerate_password" type="object" class="oe_stat_button" icon="fa-random" string="Regenerate password">
+                  <div class="o_form_field o_stat_info">
+                    <span class="o_stat_value">
+                      <field name="password" string="Password"/>
+                    </span>
+                    <span class="o_stat_text">Password</span>
+                  </div>
+                </button>
+              </div>-->
+            <!-- <header><button name="regenerate_password" type="object" string="Regenerate password"/></header> -->
+            <!-- Si se deja fuera del grupo se vero sólo la imaen sin la etiqueta 'photo' -->
+            <field name="image_128" widget="image"/>
+            <group>
+              <group>
+                <separator string="Personal Data"></separator>
+                <field name="name"/>
+                <field name="birth_year"/>
+                <!-- Ocultar password: <field name="password" password="True"/> -->
+                <field name="password"/>
+                <field name="description"/>
+              </group>
+              <!-- El field solo aparece en modo edición: class="oe_edit_only" -->
+              <!-- Esconder el group si estamos en state 1(odoo 17): <group invisible="state == '1'"> -->
+              <group>
+                <separator string="Enrollment Data"></separator>
+                <field name="enrollment_date"/>
+                <field name="last_login"/>
+                <field name="is_student"/>
+                <!-- Ocultar fields condicionalmente: attrs o en odoo 17 invisible="field == value" -->
+                <!-- readonly="is_student == True" -->
+                <!-- <field name="classroom" invisible="is_student == False" required="is_student == True" domain="[('level','=',level)]"/> -->
+                <!-- En odoo 17 usar 'or' en vez de '|' ===> invisible="is_student == False or level == False"  -->
+                <field name="classroom" invisible="is_student == False or level == False" required="is_student == True"/>
+                <field name="level"/>,,,
+              </group>
+            </group>
+            <notebook>
+              <page string="Teachers">
+                <field name="teachers">
+                  <tree>
+                    <field name="name"/>
+                    <field name="topic"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="newschool.quick_create_student_form">
+      <field name="name">newschool student form quick create</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"></field>
+            <field name="birth_year"></field>
+            <field name="classroom"></field>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- SEARCH -->
+    
+    <record model="ir.ui.view" id="newschool.student_search">
+      <field name="name">newschool student search</field>
+      <field name="model">res.partner</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"></field>
+          <field name="birth_year"></field>
+          <!-- filter_domain="[('birth_year','>=',self)]" Buscar un años mayores o igual que el que hemos introducido -->
+          <field name="birth_year" string="Min Year" filter_domain="[('birth_year','>=',self)]"/>
+          <field name="dni"></field>
+          <field name="classroom"></field>
+          <!-- FILTROS -->
+          <!-- FILTRO DEFAULT: Se debe indicar en el action window (No siempre es necesario, probar sin hacerlo) -->
+          <!-- Se puede filtrar por más de un criterio poniendo una coma y una nueva tupla:
+                domain="[('birth_year', '&lt;=', 2000),('field_name','operator',value)]"
+               Si se quiere utilizar el operador 'OR':
+                domain="['|',('birth_year', '&lt;=', 2000),('field_name','operator',value)]" -->
+          <filter name="adult" string="Adult +18" domain="[('birth_year', '&lt;=', 2000)]"/>
+          <filter name="is_student" string="Is Student" domain="[('is_student', '=', True)]"/>
+          <!-- GROUP BY -->
+          <filter name="group_by_classroom" string="Group by classroom" context="{'group_by': 'classroom'}" />      
+        </search>
+      </field>
+    </record>   
+
+    <!-- KANBAN -->
+
+    <record model="ir.ui.view" id="newschool.student_kanban">
+      <field name="name">res.partner kanban</field>
+      <field name="model">res.partner</field>
+      <field name="priority">17</field>
+      <field name="arch" type="xml">
+        <!--Atributos kanban: default_group_by="classroom", default_order="name", quick_create="True"-->
+        <kanban default_group_by="classroom" on_create="quick_create" quick_create_view="newschool.quick_create_student_form">
+          <field name="id"></field>
+          <field name="classroom"></field>
+          <field name="name"></field>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.classroom.raw_value)}} oe_kanban_global_click o_kanban_record_has_image_fill">
+                <a type="open">
+                  <img class="oe_kanban_image" t-att-alt="record.name.value" t-att-src="kanban_image('res.partner','image_1920',record.id.value)"/>
+                </a>
+                <div t-attf-class="oe_kanban_global_content">
+                  <h4>
+                    <a type="edit">
+                      <field name="name"></field>
+                    </a>
+                  </h4>
+                  <ul>
+                    <li>Classroom: <field name="classroom"></field></li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- CALENDAR -->
+
+    <record model="ir.ui.view" id="newschool.seminar_calendar">
+      <field name="name">newschool seminar calendar</field>
+      <field name="model">newschool.seminar</field>
+      <field name="arch" type="xml">
+        <!-- Se puede sustituir date_stop por date_delay -->
+        <calendar string="Seminar Calendar" date_start="date_start" date_stop="date_finish" color="classroom">
+          <field name="name"/>
+        </calendar>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="newschool.action_student_window">
+      <field name="name">newschool student window</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree,form,kanban</field>
+      <!--<field name="search_view_id" ref="school.student_search"/> Una forma de especificar la vista search que se va a usar-->
+      <!--<field name="search_view_id" ref="newschool.student_search"/>-->
+      <!--<field name="domain">[('id_student','=',True)]</field> Sólo muestra los que son estudiantes, el filtro se aplica en la BBDD por lo tanto no se podrá acceder a los que no son estudiantes-->
+      <!--Pasar por contexto-->
+      <field name="context">{'search_default_is_student':1, 'default_is_student':True}</field>
+
+      <!-- 'default_is_student' :True ==> Indica que al crear un nuevo estudiante is_student sea true por defecto -->
+      <!-- 'search_default_is_student' :True ==> Indica que al filtro aparece por defecto en la barra de busqueda -->
+
+      <!--<field name="context">{'search_default_is_student' :1, 'default_is_student' :True}</field>-->
+
+      <!--FILTROS DEFAULT - Sintaxis: <field name="context">{'search_default_filterName': 1}</field> -->
+      <!--EL FILTRO ESTARÁ DEFINIDO EN LA VISTA SEARCH -->
+      <!-- <field name="context">{'search_default_adult': 1}</field> -->
+      
+      <field name="view_ids" eval="[(5,0,0),
+      (0,0, {'view_mode' : 'tree', 'view_id' : ref('newschool.student_list')}),
+      (0,0, {'view_mode' : 'form', 'view_id' : ref('newschool.student_form')}),
+      (0,0, {'view_mode' : 'kanban', 'view_id' : ref('newschool.student_kanban')}),]"/>
+      
+    </record>
+<!--
+    <record model="ir.actions.act_window" id="newschool.action_view_student_tree">
+      <field eval="1" name="sequence"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="newschool.student_list"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_view_student_kanban">
+      <field eval="3" name="sequence"/>
+      <field name="view_mode">kanban</field>
+      <field name="view_id" ref="newschool.student_kanban"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_view_student_form">
+      <field eval="2" name="sequence"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="newschool.student_form"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+-->
+    <!--===HERENCIA========================================================================================================-->
+    <!--
+    <record model="ir.actions.act_window.view" id="newschool.action_view_student_tree">
+      <field eval="1" name="sequence"/>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="newschool.student_list"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="newschool.action_view_student_form">
+      <field eval="2" name="sequence"/>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="newschool.student_partner_form"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="newschool.action_view_student_kanban">
+      <field eval="3" name="sequence"/>
+      <field name="view_mode">kanban</field>
+      <field name="view_id" ref="newschool.student_kanban"/>
+      <field name="act_window_id" ref="newschool.action_student_window"/>
+    </record>
+    -->
+    <!--=================================================================================================================-->
+    <record model="ir.actions.act_window" id="newschool.action_student_2_window">
+      <field name="name">newschool student 2 window</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="newschool.student_search"/>
+      <field name="context">{'search_default_is_student' :1, 'default_is_student' :True}</field>
+      <!--view ids es el many2many (es lo mismo que hacer lo de arriba pero más corto)
+      aquí se utilizan las expresiones de odoo para meter cosas en los many2many
+      5,0,0 limpia la lista
+      0,0,{} añade las vistas-->
+      <field name="view_ids" eval="[(5,0,0),
+      (0,0, {'view_mode' : 'tree', 'view_id' : ref('newschool.student_list2')}),
+      (0,0, {'view_mode' : 'form', 'view_id' : ref('newschool.student_form')}),]"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_student_modal">
+      <field name="name">newschool student window modal</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      <field name="context">{'default_is_student' :True}</field>
+      <field name="view_id" ref="newschool.student_form"/>
+    </record>
+
+    <!-- ACTION SERVER-->
+
+    <record model="ir.actions.server" id="newschool.student_server_action">
+      <field name="name">student server action</field>
+      <field name="model_id" ref="model_res_partner"/>
+      <field name="binding_model_id" ref="model_res_partner"/>
+      <field name="state">code</field>
+      <field name="code">
+        raise UserError(model._name)
+      </field>
+    </record>
+
+    <!-- ACTION SERVER: recorriendo records-->
+    <record model="ir.actions.server" id="newschool.student_server_action_2">
+      <field name="name">student server action 2</field>
+      <field name="model_id" ref="model_res_partner"/>
+      <field name="binding_model_id" ref="model_res_partner"/>
+      <field name="state">code</field>
+      <!--SI EL CÓDIGO ES DE MÁS DE UNA LÍNEA HAY QUE INDENTARLO DESDE EL INICIO-->
+      <!--También se puede llamar a una función implementada en el modelo ==> model.matricular()-->
+      <field name="code">
+mensaje = ''
+for r in records:
+  mensaje += str(r.name)
+raise UserError(mensaje)
+      </field>
+    </record>
+
+     <record model="ir.actions.server" id="newschool.student_server_action_3">
+      <field name="name">student server action 3</field>
+      <field name="model_id" ref="model_res_partner"/>
+      <field name="binding_model_id" ref="model_res_partner"/>
+      <field name="state">code</field>
+      <field name="code">
+        <!--model.server_action_students()-->
+        model.server_action_students(records)
+      </field>
+    </record>
+
+    <!-- ACTION SERVER: recorriendo records CRON-->
+
+    <record model="ir.cron" forcecreate="True" id="newschool.student_cron">
+      <field name="name">Student Cron</field>
+      <field name="model_id" ref="model_res_partner"/>
+      <field name="state">code</field>
+      <field name="code">model.cron()</field>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">1</field>
+      <field name="interval_type">minutes</field>
+      <field name="numbercall">-1</field>
+      <field name="type">specific</field>
+      <field name="doall" eval="False"/>
+    </record>
+
+    <!--=================================================================================================================-->
+
+    <record model="ir.actions.act_window" id="newschool.action_classroom_window">
+      <field name="name">newschool classroom window</field>
+      <field name="res_model">newschool.classroom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_teacher_window">
+      <field name="name">newschool teacher window</field>
+      <field name="res_model">newschool.teacher</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_seminar_window">
+      <field name="name">newschool seminar window</field>
+      <field name="res_model">newschool.seminar</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="newschool.action_course_window">
+      <field name="name">newschool course window</field>
+      <field name="res_model">newschool.course</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="newschool.action_server">
+      <field name="name">newschool server</field>
+      <field name="model_id" ref="model_newschool_newschool"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="New School" id="newschool.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Management" id="newschool.menu_1" parent="newschool.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Students" id="newschool.menu_students_list" parent="newschool.menu_1" action="newschool.action_student_window"/>
+
+    <menuitem name="Classrooms" id="newschool.menu_classrooms_list" parent="newschool.menu_1" action="newschool.action_classroom_window"/>
+
+    <menuitem name="Teachers" id="newschool.menu_teachers_list" parent="newschool.menu_1" action="newschool.action_teacher_window"/>
+    
+    <menuitem name="Seminars" id="newschool.menu_seminars_list" parent="newschool.menu_1" action="newschool.action_seminar_window"/>
+    
+    <menuitem name="Students 2" id="newschool.menu_students_2_list" parent="newschool.menu_1" action="newschool.action_student_2_window"/>
+    
+    <menuitem name="Course" id="newschool.menu_course_list" parent="newschool.menu_1" action="newschool.action_course_window"/>
+
+  </data>
+</odoo>
